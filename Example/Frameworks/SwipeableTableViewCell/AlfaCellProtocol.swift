@@ -17,6 +17,7 @@ protocol AlfaCellProtocol {
     var swipeGestureAdded: Bool{get set}
     var dataIndex:Int {get set}
     var updateTableViewToCloseAllOtherOpenCell:()->() {get set}
+    var isIndexPathOpened:Bool {get set}
     func setUp(cell:Cell, cellWidth:CGFloat)
 }
 
@@ -60,6 +61,11 @@ extension AlfaCellProtocol {
             buts.sort(by: { (button1, button2) -> Bool in
                 return button1.tag > button2.tag
             })
+            buttonViews = buts
+        } else {
+            buts.forEach({ (but) in
+                but.removeFromSuperview()
+            })
         }
         
         for index in stride(from: optionTitles.count - 1, through: 0, by: -1) {
@@ -83,26 +89,52 @@ extension AlfaCellProtocol {
             }
         }
         
-        if !resuseButtons {
-            buttonViews = Array(buttonViews.reversed())
-            for but in buttonViews {
-                but.frame.origin.x = endValue
-                but.originalXvalue = but.frame.origin.x
-                endValue += but.frame.width
-            }
+        buttonViews = Array(buttonViews.reversed())
+        var displacement:CGFloat = 0
+        for but in buttonViews {
+            but.frame.origin.x = endValue
+            but.originalXvalue = but.frame.origin.x
+            endValue += but.frame.width
+            displacement += but.frame.width
         }
         
+        var swipeLeft:AlfaSwipeGestureRecogniser!
+        var swipeRight:AlfaSwipeGestureRecogniser!
+        
         if cell.gestureRecognizers == nil || cell.gestureRecognizers?.count == 0 {
-            let swipeLeft = AlfaSwipeGestureRecogniser(for: cell) { (recogniser) in
+            swipeLeft = AlfaSwipeGestureRecogniser(for: cell) { (recogniser) in
                 self.swipeLeft(cell: cell, gestureRecogniser: recogniser)
             }
             swipeLeft.direction = .left
-            let swipeRight = AlfaSwipeGestureRecogniser(for: cell) { (recogniser) in
+            swipeRight = AlfaSwipeGestureRecogniser(for: cell) { (recogniser) in
                 self.swipeRight(cell: cell, gestureRecogniser: recogniser)
             }
             swipeRight.direction = .right
+        } else if let recogs = cell.gestureRecognizers as? [AlfaSwipeGestureRecogniser] {
+            for recog in recogs {
+                if recog.direction == .left {
+                    swipeLeft = recog
+                } else if recog.direction == .right {
+                    swipeRight = recog
+                }
+            }
         }
         
+        if isIndexPathOpened {
+            cell.contentView.frame.origin.x = -displacement
+            for but in buttonViews {
+                but.frame.origin.x -= displacement
+            }
+            swipeLeft.swiped = true
+            swipeRight.swiped = false
+        } else {
+            cell.contentView.frame.origin.x = 0
+            for but in buts {
+                but.frame.origin.x = but.originalXvalue
+            }
+            swipeLeft.swiped = false
+            swipeRight.swiped = true
+        }
         
     }
     
@@ -159,6 +191,26 @@ extension AlfaCellProtocol {
             }
         })
         
+    }
+    
+    func closeCell (cell:Cell) {
+        let buts = getButtons(cell: cell)
+        UIView.animate(withDuration: 0.2, animations: { 
+            cell.contentView.frame.origin.x = 0
+            for but in buts {
+                but.frame.origin.x = but.originalXvalue
+            }
+        }) { (done) in
+            if let recogs = cell.gestureRecognizers as? [AlfaSwipeGestureRecogniser] {
+                for recog in recogs {
+                    if recog.direction == .right {
+                        recog.swiped = true
+                        continue
+                    }
+                    recog.swiped = false
+                }
+            }
+        }
     }
     
     func swipeLeft(cell:Cell, gestureRecogniser:UISwipeGestureRecognizer?) {

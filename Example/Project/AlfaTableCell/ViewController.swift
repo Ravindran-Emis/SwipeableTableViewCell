@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import SwipeableTableViewCell
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    var openIndexPath:IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +63,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         cell.callBackBlocksforEach = [infoBlock, deleteBlock]
         cell.dataIndex = indexPath.row
+        cell.updateTableViewToCloseAllOtherOpenCell = {() in
+            if let openIndex = self.openIndexPath {
+                if let openCell = tableView.cellForRow(at: openIndex) as? AlfaTableViewCell {
+                    openCell.closeCell(cell: openCell)
+                }
+            }
+            self.openIndexPath = indexPath
+        }
+        if let openIndex = openIndexPath {
+            cell.isIndexPathOpened = openIndex == indexPath
+        }
         cell.setUp(cell: cell, cellWidth: self.tableView.bounds.width)
+        
         return cell
     }
     

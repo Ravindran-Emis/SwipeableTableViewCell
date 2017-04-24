@@ -16,9 +16,7 @@
 		EBC69C571EAC6A3C00752AAC /* AlfaTableCellUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC69C561EAC6A3C00752AAC /* AlfaTableCellUITests.swift */; };
 		EBC69C661EAC6A5600752AAC /* AlfaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC69C641EAC6A5600752AAC /* AlfaTableViewCell.swift */; };
 		EBC69C671EAC6A5600752AAC /* AlfaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBC69C651EAC6A5600752AAC /* AlfaTableViewCell.xib */; };
-		EBC69C691EAC6A8D00752AAC /* AlfaCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC69C681EAC6A8D00752AAC /* AlfaCellProtocol.swift */; };
-		EBC69C6B1EAC7AEC00752AAC /* AlfaOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC69C6A1EAC7AEC00752AAC /* AlfaOptionButton.swift */; };
-		EBC69C6D1EAC801200752AAC /* AlfaSwipeGestureRecogniser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC69C6C1EAC801200752AAC /* AlfaSwipeGestureRecogniser.swift */; };
+		EBCA35EB1EAE060A00DC9065 /* SwipeableTableViewCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCA35EA1EAE060A00DC9065 /* SwipeableTableViewCell.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,9 +52,7 @@
 		EBC69C581EAC6A3C00752AAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBC69C641EAC6A5600752AAC /* AlfaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlfaTableViewCell.swift; sourceTree = "<group>"; };
 		EBC69C651EAC6A5600752AAC /* AlfaTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlfaTableViewCell.xib; sourceTree = "<group>"; };
-		EBC69C681EAC6A8D00752AAC /* AlfaCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlfaCellProtocol.swift; sourceTree = "<group>"; };
-		EBC69C6A1EAC7AEC00752AAC /* AlfaOptionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlfaOptionButton.swift; sourceTree = "<group>"; };
-		EBC69C6C1EAC801200752AAC /* AlfaSwipeGestureRecogniser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlfaSwipeGestureRecogniser.swift; sourceTree = "<group>"; };
+		EBCA35EA1EAE060A00DC9065 /* SwipeableTableViewCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeableTableViewCell.framework; path = "../Frameworks/build/Debug-iphoneos/SwipeableTableViewCell.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBCA35EB1EAE060A00DC9065 /* SwipeableTableViewCell.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +88,7 @@
 				EBC69C4A1EAC6A3C00752AAC /* AlfaTableCellTests */,
 				EBC69C551EAC6A3C00752AAC /* AlfaTableCellUITests */,
 				EBC69C341EAC6A3C00752AAC /* Products */,
+				EBCA35E71EAE05CC00DC9065 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,9 +113,6 @@
 				EBC69C421EAC6A3C00752AAC /* Info.plist */,
 				EBC69C641EAC6A5600752AAC /* AlfaTableViewCell.swift */,
 				EBC69C651EAC6A5600752AAC /* AlfaTableViewCell.xib */,
-				EBC69C681EAC6A8D00752AAC /* AlfaCellProtocol.swift */,
-				EBC69C6A1EAC7AEC00752AAC /* AlfaOptionButton.swift */,
-				EBC69C6C1EAC801200752AAC /* AlfaSwipeGestureRecogniser.swift */,
 			);
 			path = AlfaTableCell;
 			sourceTree = "<group>";
@@ -138,6 +133,14 @@
 				EBC69C581EAC6A3C00752AAC /* Info.plist */,
 			);
 			path = AlfaTableCellUITests;
+			sourceTree = "<group>";
+		};
+		EBCA35E71EAE05CC00DC9065 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBCA35EA1EAE060A00DC9065 /* SwipeableTableViewCell.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,12 +281,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBC69C6D1EAC801200752AAC /* AlfaSwipeGestureRecogniser.swift in Sources */,
-				EBC69C6B1EAC7AEC00752AAC /* AlfaOptionButton.swift in Sources */,
 				EBC69C661EAC6A5600752AAC /* AlfaTableViewCell.swift in Sources */,
 				EBC69C391EAC6A3C00752AAC /* ViewController.swift in Sources */,
 				EBC69C371EAC6A3C00752AAC /* AppDelegate.swift in Sources */,
-				EBC69C691EAC6A8D00752AAC /* AlfaCellProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +536,7 @@
 				EBC69C5D1EAC6A3C00752AAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EBC69C5E1EAC6A3C00752AAC /* Build configuration list for PBXNativeTarget "AlfaTableCellTests" */ = {
 			isa = XCConfigurationList;
@@ -544,6 +545,7 @@
 				EBC69C601EAC6A3C00752AAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EBC69C611EAC6A3C00752AAC /* Build configuration list for PBXNativeTarget "AlfaTableCellUITests" */ = {
 			isa = XCConfigurationList;
@@ -552,6 +554,7 @@
 				EBC69C631EAC6A3C00752AAC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

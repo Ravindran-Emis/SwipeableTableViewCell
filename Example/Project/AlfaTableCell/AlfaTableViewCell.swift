@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import SwipeableTableViewCell
 
 class AlfaTableViewCell: UITableViewCell,AlfaCellProtocol {
+    
+    var isIndexPathOpened: Bool = false
 
     var updateTableViewToCloseAllOtherOpenCell: () -> () = {() in}
 
