@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Project/AlfaTableCell.xcodeproj">
+      location = "group:Frameworks/SwipeableTableViewCell.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Project/../Frameworks/SwipeableTableViewCell.xcodeproj">
+      location = "group:Project/AlfaTableCell.xcodeproj">
    </FileRef>
 </Workspace>

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol AlfaCellProtocol {
+public protocol AlfaCellProtocol {
     associatedtype Cell:UITableViewCell
     var optionTitles:[String]{get set}
     var optionButtonBGColors:[UIColor]{get set}
@@ -21,9 +21,9 @@ protocol AlfaCellProtocol {
     func setUp(cell:Cell, cellWidth:CGFloat)
 }
 
-extension AlfaCellProtocol {
+public extension AlfaCellProtocol {
     
-    func getButtonView(text:String, color:UIColor, cell:Cell) -> AlfaOptionButton {
+    public func getButtonView(text:String, color:UIColor, cell:Cell) -> AlfaOptionButton {
         let view = AlfaOptionButton(frame: CGRect.zero)
         let label = UILabel(frame: CGRect.zero)
         label.font = UIFont.systemFont(ofSize: 13)
@@ -44,13 +44,13 @@ extension AlfaCellProtocol {
         return view
     }
     
-    func optionButtonTapped(_ button:UIButton) {
+    public func optionButtonTapped(_ button:UIButton) {
         if button.tag < self.callBackBlocksforEach.count {
             self.callBackBlocksforEach[button.tag](dataIndex)
         }
     }
     
-    func setUp(cell:Cell, cellWidth:CGFloat) {
+    public func setUp(cell:Cell, cellWidth:CGFloat) {
         var buttonViews = [AlfaOptionButton]()
         
         var endValue = cellWidth
@@ -138,7 +138,7 @@ extension AlfaCellProtocol {
         
     }
     
-    func getSpaceOccupiedButtons(cell:Cell) -> CGFloat {
+    public func getSpaceOccupiedButtons(cell:Cell) -> CGFloat {
         var space:CGFloat = 0
         for view in cell.subviews {
             if let but = view as? AlfaOptionButton {
@@ -148,7 +148,7 @@ extension AlfaCellProtocol {
         return space
     }
     
-    func getButtons(cell:Cell) -> [AlfaOptionButton] {
+    public func getButtons(cell:Cell) -> [AlfaOptionButton] {
         var buts:[AlfaOptionButton] = []
         for view in cell.subviews {
             if let but = view as? AlfaOptionButton {
@@ -158,7 +158,7 @@ extension AlfaCellProtocol {
         return buts
     }
     
-    func toggleCellOpenClose (toOpen:Bool, cell:Cell, recogniser:UISwipeGestureRecognizer) {
+    public func toggleCellOpenClose (toOpen:Bool, cell:Cell, recogniser:UISwipeGestureRecognizer) {
         
         guard let alfaRecogniser = recogniser as? AlfaSwipeGestureRecogniser else { return }
         let displacement = getSpaceOccupiedButtons(cell: cell)
@@ -193,7 +193,7 @@ extension AlfaCellProtocol {
         
     }
     
-    func closeCell (cell:Cell) {
+    public func closeCell (cell:Cell) {
         let buts = getButtons(cell: cell)
         UIView.animate(withDuration: 0.2, animations: { 
             cell.contentView.frame.origin.x = 0
@@ -213,12 +213,12 @@ extension AlfaCellProtocol {
         }
     }
     
-    func swipeLeft(cell:Cell, gestureRecogniser:UISwipeGestureRecognizer?) {
+    public func swipeLeft(cell:Cell, gestureRecogniser:UISwipeGestureRecognizer?) {
         updateTableViewToCloseAllOtherOpenCell()
         self.toggleCellOpenClose(toOpen:true, cell: cell, recogniser: gestureRecogniser!)
     }
     
-    func swipeRight(cell:Cell, gestureRecogniser:UISwipeGestureRecognizer?) {
+    public func swipeRight(cell:Cell, gestureRecogniser:UISwipeGestureRecognizer?) {
         self.toggleCellOpenClose(toOpen:false, cell: cell, recogniser: gestureRecogniser!)
     }
 }

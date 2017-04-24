@@ -10,7 +10,7 @@ import UIKit
 
 typealias SwipeActionBlock = (_ recognizer:UISwipeGestureRecognizer) -> ()
 
-class AlfaSwipeGestureRecogniser: UISwipeGestureRecognizer {
+public class AlfaSwipeGestureRecogniser: UISwipeGestureRecognizer {
     
     private var swipeAction:SwipeActionBlock = {(recognizer) in }
     var swiped:Bool = false

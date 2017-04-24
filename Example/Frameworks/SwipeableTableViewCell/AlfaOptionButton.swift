@@ -10,7 +10,7 @@ import UIKit
 
 typealias ActionBlock = (_ sender:UIButton) -> ()
 
-class AlfaOptionButton: UIButton {
+public class AlfaOptionButton: UIButton {
 
     /*
     // Only override draw() if you perform custom drawing.

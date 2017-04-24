@@ -16,7 +16,7 @@
 		EBC69C571EAC6A3C00752AAC /* AlfaTableCellUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC69C561EAC6A3C00752AAC /* AlfaTableCellUITests.swift */; };
 		EBC69C661EAC6A5600752AAC /* AlfaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC69C641EAC6A5600752AAC /* AlfaTableViewCell.swift */; };
 		EBC69C671EAC6A5600752AAC /* AlfaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBC69C651EAC6A5600752AAC /* AlfaTableViewCell.xib */; };
-		EBCA35EB1EAE060A00DC9065 /* SwipeableTableViewCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCA35EA1EAE060A00DC9065 /* SwipeableTableViewCell.framework */; };
+		EBCA35F51EAE07F200DC9065 /* SwipeableTableViewCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBCA35F21EAE07EB00DC9065 /* SwipeableTableViewCell.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +33,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = EBC69C321EAC6A3C00752AAC;
 			remoteInfo = AlfaTableCell;
+		};
+		EBCA35F11EAE07EB00DC9065 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBCA35EC1EAE07EB00DC9065 /* SwipeableTableViewCell.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EBCA35BE1EAE027B00DC9065;
+			remoteInfo = SwipeableTableViewCell;
+		};
+		EBCA35F31EAE07EB00DC9065 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBCA35EC1EAE07EB00DC9065 /* SwipeableTableViewCell.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EBCA35C71EAE027B00DC9065;
+			remoteInfo = SwipeableTableViewCellTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -52,7 +66,7 @@
 		EBC69C581EAC6A3C00752AAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBC69C641EAC6A5600752AAC /* AlfaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlfaTableViewCell.swift; sourceTree = "<group>"; };
 		EBC69C651EAC6A5600752AAC /* AlfaTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlfaTableViewCell.xib; sourceTree = "<group>"; };
-		EBCA35EA1EAE060A00DC9065 /* SwipeableTableViewCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeableTableViewCell.framework; path = "../Frameworks/build/Debug-iphoneos/SwipeableTableViewCell.framework"; sourceTree = "<group>"; };
+		EBCA35EC1EAE07EB00DC9065 /* SwipeableTableViewCell.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwipeableTableViewCell.xcodeproj; path = ../Frameworks/SwipeableTableViewCell.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBCA35EB1EAE060A00DC9065 /* SwipeableTableViewCell.framework in Frameworks */,
+				EBCA35F51EAE07F200DC9065 /* SwipeableTableViewCell.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +152,18 @@
 		EBCA35E71EAE05CC00DC9065 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EBCA35EA1EAE060A00DC9065 /* SwipeableTableViewCell.framework */,
+				EBCA35EC1EAE07EB00DC9065 /* SwipeableTableViewCell.xcodeproj */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EBCA35ED1EAE07EB00DC9065 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EBCA35F21EAE07EB00DC9065 /* SwipeableTableViewCell.framework */,
+				EBCA35F41EAE07EB00DC9065 /* SwipeableTableViewCellTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +262,12 @@
 			mainGroup = EBC69C2A1EAC6A3C00752AAC;
 			productRefGroup = EBC69C341EAC6A3C00752AAC /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = EBCA35ED1EAE07EB00DC9065 /* Products */;
+					ProjectRef = EBCA35EC1EAE07EB00DC9065 /* SwipeableTableViewCell.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				EBC69C321EAC6A3C00752AAC /* AlfaTableCell */,
@@ -247,6 +276,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		EBCA35F21EAE07EB00DC9065 /* SwipeableTableViewCell.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwipeableTableViewCell.framework;
+			remoteRef = EBCA35F11EAE07EB00DC9065 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EBCA35F41EAE07EB00DC9065 /* SwipeableTableViewCellTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwipeableTableViewCellTests.xctest;
+			remoteRef = EBCA35F31EAE07EB00DC9065 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		EBC69C311EAC6A3C00752AAC /* Resources */ = {
